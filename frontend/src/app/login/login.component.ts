@@ -40,6 +40,7 @@ export class LoginComponent {
   zero_totp_maintenance=false;
   zero_totp_issue=false;
   zero_totp_back_online=false;
+  zero_totp_uptime_status = "unknown";
 
   constructor(
     private router: Router,
@@ -47,6 +48,7 @@ export class LoginComponent {
     private userService: UserService,
     private crypto:Crypto,
     private localVaultv1: LocalVaultV1Service,
+    private http: HttpClient,
     ) {
     }
 
@@ -75,19 +77,21 @@ export class LoginComponent {
         }
 
         case 'maintenance':{
-            this.zero_totp_maintenance = true;
+          this.get_zero_totp_uptime_status();
+          
          
           
           break;
         }
 
         case 'back-online':{
-          this.zero_totp_back_online = true;
+          
+          this.get_zero_totp_uptime_status();
           break;
         }
 
         case 'issue':{
-            this.zero_totp_issue = true;
+          this.get_zero_totp_uptime_status();
            
            break;
          }
@@ -102,6 +106,24 @@ export class LoginComponent {
         }
       }
       
+    }
+
+    get_zero_totp_uptime_status(){
+      this.http.get("https://raw.githubusercontent.com/SeaweedbrainCY/zero-totp-rescue/refs/heads/main/uptime_status.txt", {responseType: 'text', observe: 'response'}).subscribe({
+        next: (response) => {
+          this.zero_totp_uptime_status = response.body!;
+          if(this.zero_totp_uptime_status == "issue"){
+            this.zero_totp_issue = true;
+          } else if (this.zero_totp_uptime_status == "maintenance"){
+            this.zero_totp_maintenance = true;
+          } else if (this.zero_totp_uptime_status == "up"){
+            this.zero_totp_back_online = true;
+          }
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
     }
 
 
