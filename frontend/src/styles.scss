@@ -1,14 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-$info: #5AA9E6;
-$danger:#FE6847;
-$warning:#FFCF56;
-$dark:#16262E;
-$success:#63A375;
-$primary:$success;
-$black:$dark;
-$test:$dark;
+$blue: #5AA9E6;
+$red: #FE6847;
+$yellow: #FFCF56;
+$dark: #16262E;
+$green: #63A375;
+$grey-light: #D3D3D3;
+$grey-lighter:#E5E4E2;
+
+
+
+@use "../node_modules/bulma/sass" with (
+  $info:  $blue,
+  $link: $blue,
+  $danger:$red,
+  $warning:$yellow,
+  $dark:$dark,
+  $success: $green,
+  $primary:$blue,
+  $black:$dark,
+  $grey-light:$grey-light
+);
 
 a:hover{
   text-decoration: underline;
@@ -84,7 +97,3 @@ video {
   cursor: pointer;
 }
 
-
-
-/*@import "../node_modules/bulma/css/bulma.css";*/
-@import "../node_modules/bulma/bulma.sass";

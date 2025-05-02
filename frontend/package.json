@@ -31,7 +31,7 @@
     "animate.css": "^4.1.1",
     "bn-ng-idle": "^2.0.5",
     "buffer": "^6.0.3",
-    "bulma": "^0.9.4",
+    "bulma": "^1.0.3",
     "bulma-modal-fx": "^1.1.1",
     "bulma-toast": "^2.4.3",
     "ngx-cookie": "^6.0.1",

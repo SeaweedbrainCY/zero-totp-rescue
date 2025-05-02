@@ -39,6 +39,7 @@ export class LoginComponent {
   is_oauth_flow=false;
   zero_totp_maintenance=false;
   zero_totp_issue=false;
+  zero_totp_back_online=false;
 
   constructor(
     private router: Router,
@@ -77,6 +78,11 @@ export class LoginComponent {
             this.zero_totp_maintenance = true;
          
           
+          break;
+        }
+
+        case 'back-online':{
+          this.zero_totp_back_online = true;
           break;
         }
 
