@@ -44,7 +44,7 @@ jobs:
         working-directory: ./frontend/dist/frontend/browser
         run: cp index.html 404.html
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./frontend/dist/frontend/browser
 
