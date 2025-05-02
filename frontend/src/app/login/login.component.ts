@@ -111,7 +111,8 @@ export class LoginComponent {
     get_zero_totp_uptime_status(){
       this.http.get("https://raw.githubusercontent.com/SeaweedbrainCY/zero-totp-rescue/refs/heads/main/uptime_status.txt", {responseType: 'text', observe: 'response'}).subscribe({
         next: (response) => {
-          this.zero_totp_uptime_status = response.body!;
+          this.zero_totp_uptime_status = response.body!.trim();
+          console.log(this.zero_totp_uptime_status);
           if(this.zero_totp_uptime_status == "issue"){
             this.zero_totp_issue = true;
           } else if (this.zero_totp_uptime_status == "maintenance"){
