@@ -4,7 +4,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-pagenotfound',
   templateUrl: './pagenotfound.component.html',
-  styleUrls: ['./pagenotfound.component.css']
+  styleUrls: ['./pagenotfound.component.css'],
+  standalone: false
 })
 export class PagenotfoundComponent {
   currentUrl: string = "";

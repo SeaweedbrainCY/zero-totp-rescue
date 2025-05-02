@@ -11,7 +11,8 @@ import { LocalVaultV1Service, UploadVaultStatus } from '../common/upload-vault/L
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  standalone: false
 })
 export class LoginComponent {
   faEnvelope=faEnvelope;
@@ -73,18 +74,14 @@ export class LoginComponent {
         }
 
         case 'maintenance':{
-          if( window.location.hostname == "zero-totp.com"){
             this.zero_totp_maintenance = true;
-          }
          
           
           break;
         }
 
         case 'issue':{
-          if( window.location.hostname == "zero-totp.com"){
             this.zero_totp_issue = true;
-          }
            
            break;
          }

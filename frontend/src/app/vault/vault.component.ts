@@ -16,7 +16,8 @@ import { BnNgIdleService } from 'bn-ng-idle';
 @Component({
   selector: 'app-vault',
   templateUrl: './vault.component.html',
-  styleUrls: ['./vault.component.css']
+  styleUrls: ['./vault.component.css'],
+  standalone: false
 })
 export class VaultComponent implements OnInit {
   faPen = faPen;
