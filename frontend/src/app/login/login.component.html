@@ -33,7 +33,21 @@
             <h1 class="is-size-4 has-text-weight-bold"> <fa-icon [icon]="faFire"></fa-icon> Zero-TOTP is currently unavailable 
             </h1><br>
             <p class="has-text-weight-bold">
-             Zero-TOTP is currently unavailable due to an issue. Our team is fully mobilized to solve the problem as soon as possible. In the meantime, you can still open backups of your vaults from here. Once the issue is resolved, you will be able to use Zero-TOTP again. Just refresh this page regularly.
+             Zero-TOTP is currently unavailable due to an issue. You have been redirected to rescue.zero-totp.com. Our team is fully mobilized to solve the problem as soon as possible. In the meantime, you can still open backups of your vaults from here. Once the issue is resolved, you will be able to use Zero-TOTP again. Just refresh this page regularly.
+            </p>
+          
+        </div>
+      </article>
+      </div>
+
+
+      <div class="has-text-centered columns p-5" *ngIf="zero_totp_back_online">
+        <article class="message is-success">
+          <div class="message-body has-text-centered">
+            <h1 class="is-size-4 has-text-weight-bold"> <fa-icon [icon]="faCheckDouble"></fa-icon> Zero-TOTP is up !
+            </h1><br>
+            <p class="has-text-weight-bold">
+              <strong class="has-text-weight-bold">Zero-TOTP is currently fully available and back online !</strong> But if you want you can still use rescue Zero-TOTP. Make sure to <a href="https://github.com/SeaweedbrainCY/zero-totp/issues" > report an bug on GitHub </a> if you're encountering an issue.
             </p>
           
         </div>
@@ -129,17 +143,3 @@
 </div>
 
 
-<div id="backup_online" class="modal modal-fx-fadeInScale" [ngClass]="{'is-active': zero_totp_back_online}">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-      <section class="modal-card-body">
-          <h1 class="is-size-1 has-text-success has-text-centered">Zero-TOTP is up  ! </h1>
-          <p class="has-text-centered"><strong class="has-text-weight-bold">Zero-TOTP is currently fully available.</strong> But if you want you can still use rescue Zero-TOTP. Make sure to <a href="https://github.com/SeaweedbrainCY/zero-totp/issues" > report an bug on GitHub </a> if you're encountering an issue</p>
-      </section>
-      <footer class="modal-card-foot is-flex is-justify-content-center">
-          <button class="button is-info ml-2 mr-2 has-text-white" [routerLink]="['/openVault']" >Stay on Rescue Zero-TOTP</button>
-          <a class="button is-success ml-2 mr-2  has-text-white" href="https://zero-totp.com/login">Go to Zero-TOTP <fa-icon [icon]="faExternalLinkAlt" class="ml-2"></fa-icon></a>
-          
-      </footer>
-  </div>
-</div>

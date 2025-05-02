@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { toast as superToast } from 'bulma-toast'
-import { faEnvelope, faLock,  faCheck, faXmark, faFlagCheckered, faCloudArrowUp, faCircleCheck, faCircleXmark, faExternalLinkAlt,faCircleUp, faPersonDigging, faFire } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock,  faCheck, faXmark, faFlagCheckered, faCloudArrowUp, faCircleCheck, faCircleXmark, faExternalLinkAlt,faCircleUp, faPersonDigging, faFire, faCheckDouble } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../common/ApiService/api-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,6 +20,7 @@ export class LoginComponent {
   faCheck=faCheck;
   faCircleXmark=faCircleXmark;
   faFire=faFire;
+  faCheckDouble=faCheckDouble;
   faPersonDigging=faPersonDigging
   faCircleCheck=faCircleCheck;
   faXmark=faXmark;
@@ -53,6 +54,7 @@ export class LoginComponent {
     }
 
     ngOnInit(){
+      this.get_zero_totp_uptime_status();
       this.error_param = this.route.snapshot.paramMap.get('error_param')
       switch(this.error_param){
         case null:{
@@ -76,26 +78,6 @@ export class LoginComponent {
           break;
         }
 
-        case 'maintenance':{
-          this.get_zero_totp_uptime_status();
-          
-         
-          
-          break;
-        }
-
-        case 'back-online':{
-          
-          this.get_zero_totp_uptime_status();
-          break;
-        }
-
-        case 'issue':{
-          this.get_zero_totp_uptime_status();
-           
-           break;
-         }
-
         case 'confirmPassphrase':{
           this.warning_message = "To continue, please confirm your passphrase"
           
@@ -109,7 +91,7 @@ export class LoginComponent {
     }
 
     get_zero_totp_uptime_status(){
-      this.http.get("https://raw.githubusercontent.com/SeaweedbrainCY/zero-totp-rescue/refs/heads/main/uptime_status.txt", {responseType: 'text', observe: 'response'}).subscribe({
+      this.http.get("https://status.zero-totp.com/status", {responseType: 'text', observe: 'response'}).subscribe({
         next: (response) => {
           this.zero_totp_uptime_status = response.body!.trim();
           console.log(this.zero_totp_uptime_status);
@@ -117,7 +99,7 @@ export class LoginComponent {
             this.zero_totp_issue = true;
           } else if (this.zero_totp_uptime_status == "maintenance"){
             this.zero_totp_maintenance = true;
-          } else if (this.zero_totp_uptime_status == "up"){
+          } else if (this.zero_totp_uptime_status == "backonline"){
             this.zero_totp_back_online = true;
           }
         },
