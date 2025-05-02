@@ -105,8 +105,8 @@
             <br><br>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-right">
-            <button class="button is-success" (click)="isUnsecureVaultModaleActive = !isUnsecureVaultModaleActive">Return to safety</button>
-            <button class="button is-danger" (click)="local_vault_service!.set_is_signature_valid(true); isUnsecureVaultModaleActive = !isUnsecureVaultModaleActive; this.isPassphraseModalActive = true;" >I trust this backup</button>
+            <button class="button is-success mr-2" (click)="isUnsecureVaultModaleActive = !isUnsecureVaultModaleActive">Return to safety</button>
+            <button class="button is-danger ml-2" (click)="local_vault_service!.set_is_signature_valid(true); isUnsecureVaultModaleActive = !isUnsecureVaultModaleActive; this.isPassphraseModalActive = true;" >I trust this backup</button>
         </footer>
     </div>
     <button class="modal-close is-large" aria-label="close" (click)="isUnsecureVaultModaleActive = !isUnsecureVaultModaleActive" ></button>
@@ -121,8 +121,8 @@
           <input class="input block" type="password" placeholder="Passphrase" name="password" [(ngModel)]="password" (keyup.enter)="openLocalVault()">
       </section>
       <footer class="modal-card-foot is-flex is-justify-content-right">
-          <button class="button" (click)="isPassphraseModalActive = !isPassphraseModalActive">Cancel</button>
-          <button class="button is-info" (click)="local_vault_service!.set_is_signature_valid(true); isPassphraseModalActive = !isUnsecureVaultModaleActive; openLocalVault();" >Unlock</button>
+          <button class="button mr-2" (click)="isPassphraseModalActive = !isPassphraseModalActive">Cancel</button>
+          <button class="button is-info ml-2" (click)="local_vault_service!.set_is_signature_valid(true); isPassphraseModalActive = !isUnsecureVaultModaleActive; openLocalVault();" >Unlock</button>
       </footer>
   </div>
   <button class="modal-close is-large" aria-label="close" (click)="isPassphraseModalActive = !isPassphraseModalActive" ></button>
