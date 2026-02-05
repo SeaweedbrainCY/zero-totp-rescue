@@ -6,6 +6,6 @@ install_frontend:
 
 run_frontend:
 	echo "Starting frontend server ..."
-	cd frontend && ng serve --host=127.0.0.1 --disable-host-check
+	cd frontend && ng serve --host=127.0.0.1 
 
 
