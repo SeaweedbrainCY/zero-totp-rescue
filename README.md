@@ -1,4 +1,11 @@
-# Zero-TOTP
+## 🔴 Zero-TOTP Rescue code has been moved to Zero-TOTP mono repo : [SeaweedbrainCY/zero-totp](https://github.com/SeaweedbrainCY/zero-totp) 🔴
+
+
+
+
+----
+*Legacy doc*
+#### Zero-TOTP
 
 <img src="https://github.com/SeaweedbrainCY/zero-totp-rescue/blob/main/frontend/src/assets/zero-totp-rescue_dark.png?raw=true"/>
 
